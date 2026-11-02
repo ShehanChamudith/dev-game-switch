@@ -550,6 +550,14 @@ namespace DevGameSwitch
             ApplyTitleBar();
         }
 
+        // CreateGraphics() in the constructor creates the handle before ClientSize is set,
+        // so CenterScreen centres the default-sized window. Re-centre at the final size.
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            CenterToScreen();
+        }
+
         void OnUserPreferenceChanged(object sender, UserPreferenceChangedEventArgs e)
         {
             if (e.Category != UserPreferenceCategory.General) return;
