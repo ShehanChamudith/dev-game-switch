@@ -1,0 +1,6 @@
+# Build output, except the app itself: it's committed so people can download
+# and run it without building. Rebuild (app\build.cmd) and commit it whenever
+# Program.cs changes.
+*.exe
+!app/DevGameSwitch.exe
+*.pdb
